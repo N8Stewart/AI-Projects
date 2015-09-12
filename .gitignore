@@ -3,3 +3,6 @@
 
 # Ignore the .idea directory 
 .idea/*
+
+# Remove the .iml files
+*.iml

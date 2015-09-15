@@ -21,33 +21,8 @@ function [ solution_state, solution_path ] = dls(initial_state, successor_func, 
     
     % --------------------------------------------------------------------
     
-    % Set the solution state and path if nothing is found
-    solution_state = [];
-    solution_path = [];
-    
-    % If the initial state is the goal state, return.
-    if (goaltest_func(initial_state))
-        solution_state = initial_state;
-        return;
-    end
-    
-    % while we have not reached the depth limit, recurse down the children
-    if (depth_limit > 0)
-        [child_states, actions] = successor_func(initial_state);
-        % for each possible action
-        for i = 1:length(actions)
-            [solution_state, solution_path] = ...
-                optimized_dls(child_states(i, :), actions(i), successor_func, goaltest_func, depth_limit - 1);
-            % If a solution_state has been reached, append the action and
-            % return
-            if (~isempty(solution_state))
-                solution_path = [actions(i) solution_path(1:end)];
-                return;
-            end
-        end
-    else
-        return; 
-    end
+    % Call the optimized version which prevents oscillations
+    [solution_state, solution_path] = optimized_dls(initial_state, 0, successor_func, goaltest_func, depth_limit);
     
 end
 

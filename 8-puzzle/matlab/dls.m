@@ -37,7 +37,7 @@ function [ solution_state, solution_path ] = dls(initial_state, successor_func, 
         % for each possible action
         for i = 1:length(actions)
             [solution_state, solution_path] = ...
-                dls(child_states(i, :), successor_func, goaltest_func, depth_limit - 1);
+                optimized_dls(child_states(i, :), actions(i), successor_func, goaltest_func, depth_limit - 1);
             % If a solution_state has been reached, append the action and
             % return
             if (~isempty(solution_state))

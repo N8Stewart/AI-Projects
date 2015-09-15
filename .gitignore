@@ -6,3 +6,6 @@
 
 # Remove the .iml files
 *.iml
+
+# Ignore the matlab temp files
+*.m~

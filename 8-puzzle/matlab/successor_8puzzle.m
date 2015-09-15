@@ -64,8 +64,8 @@ function [ child_states, actions ] = successor_8puzzle( parent_state )
     end
     
     % For each action possible, determine the child matrix for that action
-    child_states = zeros(size(actions, 2), 9);
-    for i = 1:size(actions, 2)
+    child_states = zeros(length(actions), 9);
+    for i = 1:length(actions)
        child_states(i,:) = compute_action(blank, actions(i), parent_state);
     end
     

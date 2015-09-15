@@ -37,16 +37,15 @@ function [ solution_state, solution_path ] = bfs(initial_state, successor_func, 
             num_predecessors = 0;
             while(predecessor(current_predecessor) ~= 0)
                  num_predecessors = num_predecessors + 1;
-                 solution_path(num_predecessors) = action(current_predecessor);
+                 solution_path = [ action(current_predecessor) solution_path ];
                  current_predecessor = predecessor(current_predecessor);
             end
-            solution_path = flip(solution_path, 2); % flip the path
             break;
         end
         
         % Append the successors of the current state to the end of queue
         [ child_states, actions ] = successor_func(state(counter, :));
-        for i = 1:size(actions, 2)
+        for i = 1:length(actions)
             % Optimization: Prevent previous state from entering queue
             successor_action = actions(i);
             previous_action = action(counter);

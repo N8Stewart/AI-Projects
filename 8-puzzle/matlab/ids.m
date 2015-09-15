@@ -9,5 +9,8 @@ function [ solution_state, solution_path ] = ids(initial_state, successor_func, 
     %actions) needed to reach that state
     
     %If no solution is found, return the empty matrix []
+    
+    % --------------------------------------------------------------------
+    
 end
 

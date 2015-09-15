@@ -41,7 +41,7 @@ function [ solution_state, solution_path ] = dls(initial_state, successor_func, 
             % If a solution_state has been reached, append the action and
             % return
             if (~isempty(solution_state))
-                solution_path(length(solution_path) + 1) = actions(i);
+                solution_path = [actions(i) solution_path(1:end)];
                 return;
             end
         end

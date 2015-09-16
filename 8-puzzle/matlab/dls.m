@@ -23,7 +23,7 @@ function [ solution_state, solution_path ] = dls(initial_state, successor_func, 
     
     % Call the optimized version which prevents oscillations
     [solution_state, solution_path] = optimized_dls(initial_state, 0, successor_func, goaltest_func, depth_limit);
-    
+    solution_path = solution_path'; % Flip the path into a column vector
 end
 
 % Same thing as the normal DLS algorithm, except prevent states from

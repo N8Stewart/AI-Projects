@@ -40,6 +40,7 @@ function [ solution_state, solution_path ] = bfs(initial_state, successor_func, 
                  solution_path = [ action(current_predecessor) solution_path ];
                  current_predecessor = predecessor(current_predecessor);
             end
+            solution_path = solution_path'; % Flip the path into a column vector
             break;
         end
         

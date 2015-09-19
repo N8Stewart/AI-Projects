@@ -39,6 +39,56 @@ function [yes]=is_terminal(state)
 	% Return true if X or O has won, or a draw
 	% Return false otherwise
 	% **********************
+    
+    % Check vertical
+    if (state(1) == 1 && state(2) == 1 && state(3) == 1) || ...
+       (state(1) == 2 && state(2) == 2 && state(3) == 2)
+        yes = true;
+        return;
+    end
+    if (state(4) == 1 && state(5) == 1 && state(6) == 1) || ...
+       (state(4) == 2 && state(5) == 2 && state(6) == 2)
+        yes = true;
+        return;
+    end
+    if (state(7) == 1 && state(8) == 1 && state(9) == 1) || ...
+       (state(7) == 2 && state(8) == 2 && state(9) == 2)
+        yes = true;
+        return;
+    end
+    
+    % Check Horizontal
+    if (state(1) == 1 && state(4) == 1 && state(7) == 1) || ...
+       (state(1) == 2 && state(4) == 2 && state(7) == 2)
+        yes = true;
+        return;
+    end
+    if (state(2) == 1 && state(5) == 1 && state(8) == 1) || ...
+       (state(2) == 2 && state(5) == 2 && state(8) == 2)
+        yes = true;
+        return;
+    end
+    if (state(3) == 1 && state(6) == 1 && state(9) == 1) || ...
+       (state(3) == 2 && state(6) == 2 && state(9) == 2)
+        yes = true;
+        return;
+    end
+    
+    % Check diagonal
+    if (state(1) == 1 && state(5) == 1 && state(9) == 1) || ...
+       (state(1) == 2 && state(5) == 2 && state(9) == 2)
+        yes = true;
+        return;
+    end
+    if (state(3) == 1 && state(5) == 1 && state(7) == 1) || ...
+       (state(3) == 2 && state(5) == 2 && state(7) == 2)
+        yes = true;
+        return;
+    end
+    
+    % Check draw
+    yes = all(state);
+    
 end
 
 function [score]=utility(state)

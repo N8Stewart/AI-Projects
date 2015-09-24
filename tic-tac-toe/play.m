@@ -12,6 +12,8 @@ function [ ] = play()
                 fprintf('** CPU thinks it will win! **\n');
             elseif score < 0
                 fprintf('** CPU thinks it will lose! **\n');
+            elseif score == 0 && turn ~= 1
+                fprintf('** CPU thinks the game is a draw! **\n');
             end
         else
             fprintf('\nPlease choose your move:\n');
@@ -27,7 +29,18 @@ function [ ] = play()
         end
         board(move)=who;
         
-        %OPTIONAL: Put game-over detection here
+        % If game is over, exit the loop
+        winner = is_terminal(board);
+        if winner == 0
+            fprintf('Draw game\n');
+            break;
+        elseif winner == 1
+            fprintf('CPU has won in %d moves\n', turn);
+            break;
+        elseif winner == 2
+            fprintf('You have won in %d moves\n', turn);
+            break;
+        end
     end
     
     fprintf('\n');

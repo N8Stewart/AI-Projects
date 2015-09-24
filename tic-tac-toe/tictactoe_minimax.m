@@ -20,16 +20,18 @@ function [ move, score ] = tictactoe_minimax( state )
         return;
     end
 
+    score = -6;
     for i=find(state==0) %Find possible moves
         new_state=state;
         new_state(i)=who; %Apply move
 
 		% Recurse to find results of this move
         [sub_move, sub_score]=tictactoe_minimax(new_state);
-
-		% **********************
-		% TASK: Implement minimax here (what do you do with sub_move & sub_score ?)
-		% **********************
+        
+        if sub_score > score 
+            score = sub_score;
+            move = sub_move;
+        end
     end
 end
 
@@ -103,4 +105,6 @@ function [score]=utility(state)
 	%Give a small, negative score if it was a slow loss (i.e., -1 if it took all 9 moves to lose)
 	%Give a large, negative score if it was a fast loss (i.e., -5 if it only took 5 moves to lose)
 	% **********************
+    
+    
 end

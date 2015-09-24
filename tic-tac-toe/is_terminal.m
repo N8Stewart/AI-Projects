@@ -5,6 +5,9 @@ function [winner]=is_terminal(state)
 	% Return -1 otherwise
 	% **********************
     
+    % Increment the state count
+    set_expanded_state_count(get_expanded_state_count() + 1);
+    
     % Check vertical
     if (state(1) == 1 && state(2) == 1 && state(3) == 1)
         winner = 1;

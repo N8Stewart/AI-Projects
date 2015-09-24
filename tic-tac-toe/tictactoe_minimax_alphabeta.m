@@ -41,13 +41,18 @@ function [ move, score ] = tictactoe_minimax_alphabeta( state, alpha, beta )
         if who == 1
             if sub_score > score 
                 score = sub_score;
+                alpha = sub_score;
                 move = i;
             end
         else
             if sub_score < score 
                 score = sub_score;
+                beta = sub_score;
                 move = i;
             end
+        end
+        if alpha >= beta % prune since branch will never be chosen
+            break;
         end
     end
 end

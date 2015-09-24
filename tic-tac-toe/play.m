@@ -5,8 +5,8 @@ function [ ] = play()
         
         if who==1
             fprintf('\nCPU making its move, please wait...\n');
-            [move,score]=tictactoe_minimax(board);
-%             [move,score]=tictactoe_minimax_alphabeta(board,-inf,inf);
+            %[move,score]=tictactoe_minimax(board);
+            [move,score]=tictactoe_minimax_alphabeta(board,-inf,inf);
             fprintf('CPU chose %d\n',move);
             if score > 0
                 fprintf('** CPU thinks it will win! **\n');

@@ -37,7 +37,7 @@ function [ move, score ] = tictactoe_minimax( state )
         new_state(i)=who; %Apply move
 
 		% Recurse to find results of this move
-        [sub_move, sub_score]=tictactoe_minimax(new_state);
+        [~, sub_score]=tictactoe_minimax(new_state);
         if who == 1
             if sub_score > score 
                 score = sub_score;

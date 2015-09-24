@@ -1,4 +1,4 @@
-function [ move, score ] = tictactoe_minimax( state )
+function [ move, score ] = tictactoe_minimax_alphabeta( state, alpha, beta )
 	% State is row vector representing a tic-tac-toe board
 	% The positions correspond as follows
 	% 1|4|7
@@ -37,7 +37,7 @@ function [ move, score ] = tictactoe_minimax( state )
         new_state(i)=who; %Apply move
 
 		% Recurse to find results of this move
-        [sub_move, sub_score]=tictactoe_minimax(new_state);
+        [~, sub_score]=tictactoe_minimax_alphabeta(new_state, alpha, beta);
         if who == 1
             if sub_score > score 
                 score = sub_score;

@@ -1,8 +1,26 @@
 # Ignore the pesky .DS_Store files
 *.DS_Store
 
-# Ignore the .idea directory 
-.idea/*
+# User-specific stuff:
+java/.idea/workspace.xml
+java/.idea/tasks.xml
+java/.idea/dictionaries
+
+# Sensitive or high-churn files:
+java/.idea/dataSources.ids
+java/.idea/dataSources.xml
+java/.idea/sqlDataSources.xml
+java/.idea/dynamic.xml
+java/.idea/uiDesigner.xml
+# Gradle:
+java/.idea/gradle.xml
+java/.idea/libraries
+# Mongo Explorer plugin:
+java/.idea/mongoSettings.xml
+
+## File-based project format:
+*.ipr
+*.iws
 
 # Remove the .iml files
 *.iml
